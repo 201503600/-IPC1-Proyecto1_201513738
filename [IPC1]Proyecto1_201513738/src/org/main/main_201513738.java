@@ -5,10 +5,6 @@
  */
 package org.main;
 
-/**
- *
- * @author ed_ci
- */
 public class main_201513738 {
 
     /**

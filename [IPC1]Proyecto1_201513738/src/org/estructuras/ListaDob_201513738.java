@@ -6,78 +6,40 @@
 
 package org.estructuras;
 
-/**
- * 
- * @author Sammy Guergachi <sguergachi at gmail.com>
- */
 public class ListaDob_201513738 {
 
-     public class Nodo {
-        String DPI;
-        String nombre;
-        String apellido;
-        String rol;
-        String pass;
-        Nodo ant,sig;
-        
-        public Nodo(String DPI , String nombre , String apellido , String rol , String pass ){
-            this.DPI  = DPI;
-            this.nombre = nombre ;
-            this.apellido = apellido ;
-            this.rol = rol;
-            this.pass = pass;
-        }
-        
+    private NodoUsuario cabeza;
+    private int size;
+
+    public ListaDob_201513738() {
+        this.cabeza = null;
+        this.size = 0;
     }
-         
-         Nodo cabeza;
-         Nodo temporal;
-         
-         
-           public ListaDob_201513738(){
-                this.cabeza = null;
-            }
-           public void add(String DPI , String nombre ,String nick, String apellido , String rol , String pass){
-               Nodo nuevoNodo = new Nodo(DPI,nombre ,apellido , rol , pass);
-               
-               if(this.cabeza==null){
-                   nuevoNodo.sig = nuevoNodo;
-                   nuevoNodo.ant = nuevoNodo;
-                   this.cabeza = nuevoNodo;
-                   
-               }else{
-                   temporal = this.cabeza.ant;
-                   
-                   this.cabeza.ant = temporal;
-                   nuevoNodo.ant = temporal;
-                   nuevoNodo.sig = this.cabeza;
-                   temporal.sig = nuevoNodo;
-               }
-           }
-           public void recorrer(){
-               temporal = this.cabeza.ant;
-               System.out.println(cabeza.nombre +"   "+cabeza.pass);
-               while(temporal!=this.cabeza){
-                   System.out.println(temporal.nombre +"   "+temporal.pass);
-                   temporal = temporal.ant;
-               }
-           }
-           public static void main(String args[]){
-           ListaDob_201513738 li = new ListaDob_201513738();
-           li.add("2666912340101", "Jose","josecbm", "Bautista", "ingeniero papi", "123");
-           li.add("26669234340101", "daniel","dani", "cil", "ingeniero papi", "123");
-           li.add("26669543240101", "lorena","lo", "mazariegos", "dfasi", "123");
-           li.recorrer();
-           
-           
-       }
-         
-           
-     
-       
-     
-    
-    
-    
+
+    public void agregarUsuario(String DPI, String nombre, String nick, String apellido, String rol, String pass) {
+        NodoUsuario nuevoNodo = new NodoUsuario(DPI, nombre, nick, apellido, rol, pass);
+
+        if (this.cabeza == null) {
+            nuevoNodo.setSiguiente(nuevoNodo);
+            nuevoNodo.setAnterior(nuevoNodo);
+            this.cabeza = nuevoNodo;
+
+        } else {
+            nuevoNodo.setSiguiente(cabeza);
+            nuevoNodo.setAnterior(cabeza.getAnterior());
+            cabeza.setAnterior(nuevoNodo);
+
+            size++;
+        }
+    }
+
+    public void recorrer() {
+        NodoUsuario aux = cabeza;
+        int i = 0;
+        while (i < size) {
+            System.out.println(aux.getDPI() + "   " + aux.getNickname());
+            aux = aux.getSiguiente();
+        }
+    }
     
 }
