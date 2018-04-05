@@ -5,17 +5,17 @@
  */
 package org.estructuras;
 
-public class NodoUsuario {
+public class NodoUsuario_201513738 {
     private String DPI;
     private String nombre;
     private String nickname;
     private String apellido;
     private String rol;
     private String pass;
-    private NodoUsuario anterior;
-    private NodoUsuario siguiente;
+    private NodoUsuario_201513738 anterior;
+    private NodoUsuario_201513738 siguiente;
       
-    public NodoUsuario(String DPI, String nombre, String nickname, String apellido, String rol, String pass) {
+    public NodoUsuario_201513738(String DPI, String nombre, String nickname, String apellido, String rol, String pass) {
         this.DPI = DPI;
         this.nombre = nombre;
         this.nickname = nickname;
@@ -74,19 +74,19 @@ public class NodoUsuario {
         this.pass = pass;
     }
 
-    public NodoUsuario getAnterior() {
+    public NodoUsuario_201513738 getAnterior() {
         return anterior;
     }
 
-    public void setAnterior(NodoUsuario anterior) {
+    public void setAnterior(NodoUsuario_201513738 anterior) {
         this.anterior = anterior;
     }
 
-    public NodoUsuario getSiguiente() {
+    public NodoUsuario_201513738 getSiguiente() {
         return siguiente;
     }
 
-    public void setSiguiente(NodoUsuario siguiente) {
+    public void setSiguiente(NodoUsuario_201513738 siguiente) {
         this.siguiente = siguiente;
     }
     

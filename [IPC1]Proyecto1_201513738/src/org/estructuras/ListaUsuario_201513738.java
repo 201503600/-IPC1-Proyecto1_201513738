@@ -6,18 +6,18 @@
 
 package org.estructuras;
 
-public class ListaDob_201513738 {
+public class ListaUsuario_201513738 {
 
-    private NodoUsuario cabeza;
+    private NodoUsuario_201513738 cabeza;
     private int size;
 
-    public ListaDob_201513738() {
+    public ListaUsuario_201513738() {
         this.cabeza = null;
         this.size = 0;
     }
 
     public void agregarUsuario(String DPI, String nombre, String nick, String apellido, String rol, String pass) {
-        NodoUsuario nuevoNodo = new NodoUsuario(DPI, nombre, nick, apellido, rol, pass);
+        NodoUsuario_201513738 nuevoNodo = new NodoUsuario_201513738(DPI, nombre, nick, apellido, rol, pass);
 
         if (this.cabeza == null) {
             nuevoNodo.setSiguiente(nuevoNodo);
@@ -28,13 +28,13 @@ public class ListaDob_201513738 {
             nuevoNodo.setSiguiente(cabeza);
             nuevoNodo.setAnterior(cabeza.getAnterior());
             cabeza.setAnterior(nuevoNodo);
-
+            cabeza.setSiguiente(cabeza);
             size++;
         }
     }
 
     public void recorrer() {
-        NodoUsuario aux = cabeza;
+        NodoUsuario_201513738 aux = cabeza;
         int i = 0;
         while (i < size) {
             System.out.println(aux.getDPI() + "   " + aux.getNickname());

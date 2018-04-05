@@ -5,13 +5,16 @@
  */
 package org.main;
 
+import org.view.VentanaPrincipal_201513738;
+
 public class main_201513738 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        VentanaPrincipal_201513738 v = new VentanaPrincipal_201513738();
+        v.setVisible(true);
     }
     
 }
