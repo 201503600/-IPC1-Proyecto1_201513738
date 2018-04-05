@@ -6,16 +6,23 @@
 package org.estructuras;
 
 public class NodoUsuario_201513738 {
+    
+    public enum ROL{
+    ADMIN,
+    CATEDRATICO,
+    ESTUDIANTE
+}
+    
     private String DPI;
     private String nombre;
     private String nickname;
     private String apellido;
-    private String rol;
+    private ROL rol;
     private String pass;
     private NodoUsuario_201513738 anterior;
     private NodoUsuario_201513738 siguiente;
       
-    public NodoUsuario_201513738(String DPI, String nombre, String nickname, String apellido, String rol, String pass) {
+    public NodoUsuario_201513738(String DPI, String nombre, String nickname, String apellido, ROL rol, String pass) {
         this.DPI = DPI;
         this.nombre = nombre;
         this.nickname = nickname;
@@ -58,11 +65,11 @@ public class NodoUsuario_201513738 {
         this.apellido = apellido;
     }
 
-    public String getRol() {
+    public ROL getRol() {
         return rol;
     }
 
-    public void setRol(String rol) {
+    public void setRol(ROL rol) {
         this.rol = rol;
     }
 

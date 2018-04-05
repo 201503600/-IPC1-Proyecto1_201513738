@@ -5,10 +5,6 @@
  */
 package org.view;
 
-/**
- *
- * @author ed_ci
- */
 public class formularioUsuario_201513738 {
     
 }
