@@ -66,11 +66,12 @@ public class InicioAdmin_201513738 extends JFrame implements ActionListener{
        btnEliminar_.setBounds(225,150,100,25);
         btnMostrar_.setBounds(325,150,100,25);
        
-       btnReporteUsr.setBounds(250,200,100,25);
-        btnReporteUsr.setBounds(500,200,100,25);
+       btnReporteUsr.setBounds(125,220,120,25);
+        btnReporteLibros.setBounds(250,220,100,25);
+        
        lblUsuario.setBounds(20,10,100,20);
        bibliografos.setBounds(20,100,50,20);
-      // reportes.setBounds(20,200,100,20);
+       reportes.setBounds(20,200,100,20);
        
        
        this.add(lblUsuario);
