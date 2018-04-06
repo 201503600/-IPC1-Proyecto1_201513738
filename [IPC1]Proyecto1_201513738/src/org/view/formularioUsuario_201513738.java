@@ -54,6 +54,5 @@ public class formularioUsuario_201513738 extends JFrame implements ActionListene
     public void actionPerformed(ActionEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
->>>>>>> 52f9f460597725d6c33250f02bbaff874343a87c
     
 }
