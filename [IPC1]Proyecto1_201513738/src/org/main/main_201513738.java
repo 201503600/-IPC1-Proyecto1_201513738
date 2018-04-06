@@ -11,6 +11,7 @@ import javax.swing.UIManager;
 import org.view.CrearUsuario_201513738;
 import org.view.InicioAdmin_201513738;
 import org.view.VentanaPrincipal_201513738;
+import org.view.VerUsuarios_2015013738;
 
 public class main_201513738 {
 
@@ -32,6 +33,8 @@ public class main_201513738 {
            }
         
         VentanaPrincipal_201513738 v = new VentanaPrincipal_201513738();
+        VerUsuarios_2015013738 va = new VerUsuarios_2015013738();
+        va.setVisible(true);
         v.setVisible(true);
         
     }
