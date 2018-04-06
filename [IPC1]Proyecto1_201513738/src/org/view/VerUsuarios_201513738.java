@@ -48,16 +48,16 @@ public class VerUsuarios_201513738  extends JFrame implements ActionListener{
        JLabel labelUSr = new JLabel("Listado de Usuarios registrados");
        panelPrincipal.setBounds(0, 0, 500, 400);
        scroll.setBounds(50, 200, 325, 200);
-       labelUSr.setBounds(100,20,100,20);
+       labelUSr.setBounds(200,20,100,20);
        tablaUsr.setBounds(50,200,325,200);
        
        btnRegresar = new JButton("Regresar");
-       btnRegresar.setBounds(10, 20, 100, 20);
+       btnRegresar.setBounds(0, 20, 50, 20);
        btnRegresar.addActionListener(this);
-       
+        panelPrincipal.add(btnRegresar);
        panelPrincipal.add(labelUSr);
        panelPrincipal.add(scroll);
-       panelPrincipal.add(btnRegresar);
+      
        this.add(panelPrincipal);
         
       

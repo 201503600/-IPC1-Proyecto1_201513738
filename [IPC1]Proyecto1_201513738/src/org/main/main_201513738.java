@@ -8,6 +8,7 @@ package org.main;
 import javax.swing.JFrame;
 import javax.swing.JDialog;
 import javax.swing.UIManager;
+import org.view.CrearBibliografia_201513738;
 import org.view.CrearUsuario_201513738;
 import org.view.InicioAdmin_201513738;
 import org.view.VentanaPrincipal_201513738;
@@ -32,8 +33,10 @@ public class main_201513738 {
             e.printStackTrace();
            }
         
-        VentanaPrincipal_201513738 v = new VentanaPrincipal_201513738();
-        v.setVisible(true);
+       // VentanaPrincipal_201513738 v = new VentanaPrincipal_201513738();
+        //v.setVisible(true);
+        CrearBibliografia_201513738 c = new CrearBibliografia_201513738();
+        c.setVisible(true);
         
     }
     
