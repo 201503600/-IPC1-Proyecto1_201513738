@@ -31,10 +31,11 @@ public class CrearBibliografia_201513738 extends JFrame implements ActionListene
     private JPanel panelCarga;
     private JPanel panelCargaMasiva;
     private JTabbedPane tabbedPane;
-    private JLabel cargaMasiva;
+    private JLabel cargaMasiva,autor, anio , titulo , des , palabras , edicion ,temas , copias , area,categoria,isbn,tipo;
+    private JTextField cMasiva ,aut , txtanio , txtTitulo , txtDes , txtPalabras , txtEdicion , txtTemas , txtCopias , txtAr , txtCat ,txtIsbn,txtTipo;
     private JTextArea txtArea;
     private ScrollPane scroll;
-    private JButton btnCarga , btnCancelar;
+    private JButton btnCarga , btnCancelar , btcargar , btcancelar;
     
     public CrearBibliografia_201513738() {
         configurarVentana();        // configuramos la ventana
@@ -53,11 +54,70 @@ public class CrearBibliografia_201513738 extends JFrame implements ActionListene
         txtArea = new JTextArea(15,75);
         btnCarga = new JButton("Cargar");
         btnCancelar = new JButton("Cancelar");
+        btcargar = new JButton("Cargar");
+        btcancelar = new JButton("Cancelar");
+        cargaMasiva = new JLabel("Autor");
+        autor = new JLabel("Autor");
+        anio = new JLabel("año");
+        titulo = new JLabel("titulo");
+        des = new JLabel("Descripcion");
+        palabras = new JLabel("Palabras");
+        edicion = new JLabel("Edicion");
+        temas = new JLabel("Temas");
+        copias = new JLabel("Area");
+        area = new JLabel("area");
+        categoria = new JLabel("Categoria");
+        isbn = new JLabel("Isbn");
+        tipo = new JLabel("tipo");
+        cMasiva = new JTextField();
+        aut = new JTextField();
+        txtanio = new JTextField();
+        txtTitulo = new JTextField();
+        txtDes = new JTextField();
+        txtPalabras = new JTextField();
+        txtEdicion = new JTextField();
+        txtTemas = new JTextField();
+        txtCopias = new JTextField();
+        txtAr = new JTextField();
+        txtCat = new JTextField();
+        txtIsbn = new JTextField();
+        txtTipo =new JTextField();
+        
+        
+        
         
         panelCargaMasiva.setBounds(0, 0, 950, 700);
+        panelCarga.setBounds(0, 0, 950, 700);
+        panelCarga.setLayout(new GridLayout(13,2));
+        
         txtArea.setBounds(75,25,800,500);
         btnCarga.setBounds(325,650,100,50);
         btnCancelar.setBounds(525,650,100,50);
+       // btcargar.setBounds(325,650,100,50);
+        //btcancelar.setBounds(525,650,100,50);
+        panelCarga.add(autor);
+        panelCarga.add(aut);
+        panelCarga.add(titulo);
+        panelCarga.add(txtTitulo);
+        panelCarga.add(des);
+        panelCarga.add(txtDes);
+        panelCarga.add(edicion);
+        panelCarga.add(txtEdicion);
+        panelCarga.add(temas);
+        panelCarga.add(txtTemas);
+        panelCarga.add(copias);
+        panelCarga.add(txtCopias);
+        panelCarga.add(area);
+        panelCarga.add(txtAr);
+        panelCarga.add(categoria);
+        panelCarga.add(txtCat);
+        panelCarga.add(isbn);
+        panelCarga.add(txtIsbn);
+        panelCarga.add(tipo);
+        panelCarga.add(txtTipo);
+        panelCarga.add(btcargar);
+        panelCarga.add(btcancelar);
+        
         
         panelCargaMasiva.add(txtArea);
         panelCargaMasiva.add(btnCarga);
