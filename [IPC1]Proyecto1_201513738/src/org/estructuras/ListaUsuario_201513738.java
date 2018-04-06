@@ -27,7 +27,7 @@ public class ListaUsuario_201513738 {
         
         if (this.cabeza == null) {
           this.cabeza = nuevoNodo;
-            
+            size++;
         } else {
             nuevoNodo.setSiguiente(cabeza);
             cabeza.setAnterior(nuevoNodo);
@@ -48,16 +48,21 @@ public class ListaUsuario_201513738 {
         return null;
         
     }
-    public boolean modificarUsuario(String DPI, String nombre, String apellido, String nickname, ROL rol, String pass){
+    public boolean modificarUsuario(String DPI, NodoUsuario_201513738 nuevo){
         if (esVacia()){
             NodoUsuario_201513738 aux = this.cabeza;
             while(aux != null){
                 if (aux.getDPI().equals(DPI)){
-                    aux.setNombre(nombre);
-                    aux.setApellido(apellido);
-                    aux.setNickname(nickname);
-                    aux.setRol(rol);
-                    aux.setPass(pass);
+                    try{
+                        aux.getAnterior().setSiguiente(nuevo);
+                    }catch(NullPointerException ex){}
+                    try{
+                        aux.getSiguiente().setAnterior(nuevo);
+                    }catch(NullPointerException ex){}
+                    nuevo.setAnterior(aux.getAnterior());
+                    nuevo.setSiguiente(aux.getSiguiente());
+                    aux.setAnterior(null);
+                    aux.setSiguiente(null);
                     return true;
                 }
                 aux = aux.getSiguiente();
@@ -98,6 +103,26 @@ public class ListaUsuario_201513738 {
         return this.size;
     }
     
+    public boolean verificarUsuario(String DPI){
+        NodoUsuario_201513738 aux = cabeza;
+        while (aux != null){
+            if (aux.getDPI().equals(DPI))
+                return true;
+            aux = aux.getSiguiente();
+        }
+        return false;
+    }
+    
+    public NodoUsuario_201513738 buscarUsuario(String DPI){
+        NodoUsuario_201513738 aux = cabeza;
+        while (aux != null){
+            if (aux.getDPI().equals(DPI))
+                return aux;
+            aux = aux.getSiguiente();
+        }
+        return null;
+    }
+    
     public void recorrer() {
        NodoUsuario_201513738 aux = this.cabeza;
        
@@ -112,5 +137,17 @@ public class ListaUsuario_201513738 {
           li.agregarUsuario(new NodoUsuario_201513738("201603600", "daniel", "daniel","daniel", ROL.ESTUDIANTE, "asdf"));
             li.agregarUsuario(new NodoUsuario_201513738("20150421", "sarai", "sarai","sarai", ROL.CATEDRATICO, "asdf"));
             li.recorrer();
+            li.modificarUsuario("201603600", new NodoUsuario_201513738("3600", "jorge", "jorge","perez", ROL.ESTUDIANTE, "123"));
+            NodoUsuario_201513738 u = li.buscarUsuario("201603600");
+            if (u == null)
+                System.out.println("No existe");
+            else
+                System.out.println("usuario " + u.getNombre());
+            
+            u = li.buscarUsuario("3600");
+            if (u == null)
+                System.out.println("No existe");
+            else
+                System.out.println("usuario " + u.getNombre());
     }
 }

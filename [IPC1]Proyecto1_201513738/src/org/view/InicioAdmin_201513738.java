@@ -17,14 +17,25 @@ import javax.swing.JTextField;
 
 public class InicioAdmin_201513738 extends JFrame implements ActionListener{
 
+    public VentanaPrincipal_201513738 instanciaPrincipal;
+    private CrearUsuario_201513738 crearUsuario;
+    private ModificarUsuario_201513738 modUsuario;
+    
     JLabel lblUsuario , bibliografos , reportes ;
+    JButton btnLogout;
     JButton btnCrear , btnModificar,btnEliminar , btnMostrar ,btnCrear_ ,btnModificar_ , btnEliminar_,btnMostrar_;
     JButton btnReporteUsr , btnReporteLibros;
     
-    public InicioAdmin_201513738() {
+    public InicioAdmin_201513738(VentanaPrincipal_201513738 instancia) {
         super();                    // usamos el contructor de la clase padre JFrame
         configurarVentana();        // configuramos la ventana
         inicializarComponentes();   // inicializamos los atributos o componentes
+        
+        this.instanciaPrincipal = instancia;
+    }
+    
+    public VentanaPrincipal_201513738 getPrincipal(){
+        return instanciaPrincipal;
     }
     
     
@@ -52,9 +63,8 @@ public class InicioAdmin_201513738 extends JFrame implements ActionListener{
       btnReporteUsr = new JButton("Reporte usuario");
       btnReporteLibros = new JButton("Reporte libro");
       
-      
-      
-       
+      btnLogout = new JButton("Cerrar Sesion");
+      btnLogout.setBounds(350, 50, 100, 20);       
        
        btnCrear.setBounds(25,30,100,25);
        btnModificar.setBounds(125,30,100,25);
@@ -72,7 +82,12 @@ public class InicioAdmin_201513738 extends JFrame implements ActionListener{
        lblUsuario.setBounds(20,10,100,20);
        bibliografos.setBounds(20,100,50,20);
        reportes.setBounds(20,200,100,20);
-       
+              
+      btnLogout.addActionListener(this);
+      btnCrear.addActionListener(this);
+      btnModificar.addActionListener(this);
+      btnEliminar.addActionListener(this);
+      btnMostrar.addActionListener(this);
        
        this.add(lblUsuario);
        this.add(btnCrear);
@@ -87,12 +102,32 @@ public class InicioAdmin_201513738 extends JFrame implements ActionListener{
        this.add(reportes);
        this.add(btnReporteUsr);
        this.add(btnReporteLibros);
+       this.add(btnLogout);
        
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (e.getSource() == btnCrear){
+            crearUsuario = new CrearUsuario_201513738(this);
+            crearUsuario.setVisible(true);
+            this.setVisible(false);
+        }
+        else if (e.getSource() == btnLogout){
+            instanciaPrincipal.setVisible(true);
+            this.dispose();
+        }
+        else if (e.getSource() == btnModificar){
+            modUsuario = new ModificarUsuario_201513738(this);
+            modUsuario.setVisible(true);
+            this.setVisible(false);
+        }
+        else if (e.getSource() == btnEliminar){
+            
+        }
+        else if (e.getSource() == btnMostrar){
+            
+        }
     }
     
 }

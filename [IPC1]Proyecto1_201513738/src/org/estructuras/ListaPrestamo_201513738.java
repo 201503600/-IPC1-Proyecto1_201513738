@@ -48,4 +48,26 @@ public class ListaPrestamo_201513738 {
         return null;
     }
     
+    public boolean eliminarPrestamo(NodoPrestamo_201513738 nodo){
+        if (esVacia()){
+            NodoPrestamo_201513738 anteriorNodo = cabeza;
+            while (anteriorNodo != null){
+                if (anteriorNodo == nodo){
+                    try{
+                        anteriorNodo.getAnterior().setSiguiente(anteriorNodo.getSiguiente());
+                    }catch(Exception ex){}
+                    try{
+                        anteriorNodo.getSiguiente().setAnterior(anteriorNodo.getAnterior());
+                    }catch(Exception ex){}
+                    anteriorNodo.setSiguiente(null);
+                    anteriorNodo.setAnterior(null);
+                    size--;
+                    return true;
+                }
+                anteriorNodo = anteriorNodo.getSiguiente();
+            }
+        }
+        return false;
+    }
+    
 }

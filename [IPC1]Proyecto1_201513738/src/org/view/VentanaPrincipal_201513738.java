@@ -17,15 +17,16 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import org.estructuras.ListaUsuario_201513738;
+import org.estructuras.NodoUsuario_201513738;
 
 public class VentanaPrincipal_201513738 extends JFrame implements ActionListener{
     
+    private Login_201513738 windowLogin;
     private JButton btnLogin, btnAbout;
-    
-   
         
-    private JLabel texto;           // etiqueta o texto no editable
-    private JTextField caja;        // caja de texto, para insertar datos
+    private JLabel lblTexto;           // etiqueta o lblTexto no editable
+    private JTextField txtCaja;        // txtCaja de lblTexto, para insertar datos
     private JButton boton;          // boton con una determinada accion
     private JPanel panelSuperior;
     private JPanel panelCentral;
@@ -33,11 +34,15 @@ public class VentanaPrincipal_201513738 extends JFrame implements ActionListener
     private JPanel panelTxt;
     private JLabel lblimg;
     
+    public  ListaUsuario_201513738 listUsuarios;
 
     public VentanaPrincipal_201513738() {
         super();                    // usamos el contructor de la clase padre JFrame
         configurarVentana();        // configuramos la ventana
         inicializarComponentes();   // inicializamos los atributos o componentes
+        
+        listUsuarios = new ListaUsuario_201513738();
+        listUsuarios.agregarUsuario(new NodoUsuario_201513738("admin", "admin", "admin", "admin", NodoUsuario_201513738.ROL.ADMIN, "admin"));
     }
 
     private void configurarVentana() {
@@ -51,8 +56,8 @@ public class VentanaPrincipal_201513738 extends JFrame implements ActionListener
 
     private void inicializarComponentes() {
         // creamos los componentes
-        texto = new JLabel();
-        caja = new JTextField();
+        lblTexto = new JLabel();
+        txtCaja = new JTextField();
         boton = new JButton();
         btnLogin = new JButton();
         btnAbout = new JButton();
@@ -61,10 +66,10 @@ public class VentanaPrincipal_201513738 extends JFrame implements ActionListener
         panelTxt = new JPanel();
         panelImagen = new JPanel();
         // configuramos los componentes
-        texto.setText("Inserte Nombre");    // colocamos un texto a la etiqueta
-        texto.setBounds(50, 50, 100, 25);   // colocamos posicion y tamanio al texto (x, y, ancho, alto)
-        caja.setBounds(150, 50, 100, 25);   // colocamos posicion y tamanio a la caja (x, y, ancho, alto)
-        boton.setText("Mostrar Mensaje");   // colocamos un texto al boton
+        lblTexto.setText("Inserte Nombre");    // colocamos un lblTexto a la etiqueta
+        lblTexto.setBounds(50, 50, 100, 25);   // colocamos posicion y tamanio al lblTexto (x, y, ancho, alto)
+        txtCaja.setBounds(150, 50, 100, 25);   // colocamos posicion y tamanio a la txtCaja (x, y, ancho, alto)
+        boton.setText("Mostrar Mensaje");   // colocamos un lblTexto al boton
         boton.setBounds(50, 100, 200, 30);  // colocamos posicion y tamanio al boton (x, y, ancho, alto)
         boton.addActionListener(this);      // hacemos que el boton tenga una accion y esa accion estara en esta clase
         btnLogin.setText("Login");
@@ -98,10 +103,14 @@ public class VentanaPrincipal_201513738 extends JFrame implements ActionListener
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String nombre = caja.getText();                                 // obtenemos el contenido de la caja de texto
-        JOptionPane.showMessageDialog(this, "Hola " + nombre + ".");    // mostramos un mensaje (frame, mensaje)
+        if (e.getSource() == btnLogin){
+            windowLogin = new Login_201513738(this);
+            windowLogin.setVisible(true);
+            this.setVisible(false);
+        }
+        else if (e.getSource() == btnAbout){
+            JOptionPane.showMessageDialog(this, "IPC 1 - Seccion E\nAux. Jose Portillo, Robin Salvatierra\n\nDaniel Rolando Ramirez Portocarrero\n201513738");
+        }
     }
-
-   
     
 }
