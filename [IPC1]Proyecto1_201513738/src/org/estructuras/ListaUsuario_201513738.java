@@ -17,6 +17,10 @@ public class ListaUsuario_201513738 {
         this.size = 0;
     }
     
+    public NodoUsuario_201513738 getRaiz(){
+        return cabeza;
+    }
+    
     public boolean esVacia(){
         if (size > 0)
             return true;
@@ -53,16 +57,12 @@ public class ListaUsuario_201513738 {
             NodoUsuario_201513738 aux = this.cabeza;
             while(aux != null){
                 if (aux.getDPI().equals(DPI)){
-                    try{
-                        aux.getAnterior().setSiguiente(nuevo);
-                    }catch(NullPointerException ex){}
-                    try{
-                        aux.getSiguiente().setAnterior(nuevo);
-                    }catch(NullPointerException ex){}
-                    nuevo.setAnterior(aux.getAnterior());
-                    nuevo.setSiguiente(aux.getSiguiente());
-                    aux.setAnterior(null);
-                    aux.setSiguiente(null);
+                    aux.setDPI(nuevo.getDPI());
+                    aux.setApellido(nuevo.getApellido());
+                    aux.setNickname(nuevo.getNickname());
+                    aux.setNombre(nuevo.getNombre());
+                    aux.setPass(nuevo.getPass());
+                    aux.setRol(nuevo.getRol());
                     return true;
                 }
                 aux = aux.getSiguiente();
@@ -127,15 +127,13 @@ public class ListaUsuario_201513738 {
        NodoUsuario_201513738 aux = this.cabeza;
        
        while(aux != null){
-           System.out.println(aux.getNickname());
+           System.out.println(aux.getDPI() + " - " + aux.getNickname());
            aux = aux.getSiguiente();
        }
     }
     public static void main(String args[]){
         ListaUsuario_201513738 li = new ListaUsuario_201513738();
-        li.agregarUsuario(new NodoUsuario_201513738("201504231", "jose", "jose","bautista", ROL.CATEDRATICO, "asdf"));
           li.agregarUsuario(new NodoUsuario_201513738("201603600", "daniel", "daniel","daniel", ROL.ESTUDIANTE, "asdf"));
-            li.agregarUsuario(new NodoUsuario_201513738("20150421", "sarai", "sarai","sarai", ROL.CATEDRATICO, "asdf"));
             li.recorrer();
             li.modificarUsuario("201603600", new NodoUsuario_201513738("3600", "jorge", "jorge","perez", ROL.ESTUDIANTE, "123"));
             NodoUsuario_201513738 u = li.buscarUsuario("201603600");
@@ -149,5 +147,6 @@ public class ListaUsuario_201513738 {
                 System.out.println("No existe");
             else
                 System.out.println("usuario " + u.getNombre());
+            li.recorrer();
     }
 }

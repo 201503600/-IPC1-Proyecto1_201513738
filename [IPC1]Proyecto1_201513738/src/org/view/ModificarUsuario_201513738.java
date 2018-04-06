@@ -34,7 +34,7 @@ public class ModificarUsuario_201513738 extends JFrame implements ActionListener
         this.instanciaPrincipal = instancia;
     }
     private void configurarVentana() {
-        this.setTitle("Crear Usuario");                   // colocamos titulo a la ventana
+        this.setTitle("Modificar Usuario");                   // colocamos titulo a la ventana
         this.setSize(500, 600);                                 // colocamos tamanio a la ventana (ancho, alto)
         this.setLocationRelativeTo(null);                       // centramos la ventana en la pantalla
         this.setLayout(null);                                   // no usamos ningun layout, solo asi podremos dar posiciones a los componentes
@@ -60,7 +60,7 @@ public class ModificarUsuario_201513738 extends JFrame implements ActionListener
      cmbRol.addItem("Catedratico");
      cmbRol.addItem("Estudiante");
      
-     btnAceptar = new JButton("Crear Usuario");
+     btnAceptar = new JButton("Modificar");
      btnCancelar = new JButton("Cancelar");
      btnBuscar = new JButton("Buscar");
      
@@ -111,6 +111,12 @@ public class ModificarUsuario_201513738 extends JFrame implements ActionListener
                             else
                                 JOptionPane.showMessageDialog(this, "Ocurrio un error al modificar el usuario");
                         DPI = "";
+                        txtId.setText("");
+                        txtNombre.setText("");
+                        txtNickname.setText("");
+                        txtApellido.setText("");
+                        txtPass.setText("");
+                        cmbRol.setSelectedIndex(0);
                     }else
                         JOptionPane.showMessageDialog(this, "El usuario con DPI " + txtId.getText() + " ya existe.");
             }else

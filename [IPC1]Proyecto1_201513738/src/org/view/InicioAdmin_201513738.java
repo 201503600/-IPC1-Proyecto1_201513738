@@ -5,21 +5,18 @@
  */
 package org.view;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class InicioAdmin_201513738 extends JFrame implements ActionListener{
 
     public VentanaPrincipal_201513738 instanciaPrincipal;
     private CrearUsuario_201513738 crearUsuario;
     private ModificarUsuario_201513738 modUsuario;
+    private VerUsuarios_201513738 verUsuario;
     
     JLabel lblUsuario , bibliografos , reportes ;
     JButton btnLogout;
@@ -126,7 +123,9 @@ public class InicioAdmin_201513738 extends JFrame implements ActionListener{
             
         }
         else if (e.getSource() == btnMostrar){
-            
+            verUsuario = new VerUsuarios_201513738(this);
+            verUsuario.setVisible(true);
+            this.setVisible(false);
         }
     }
     
