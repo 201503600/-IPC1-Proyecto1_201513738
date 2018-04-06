@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import org.estructuras.ListaBibliografia_201513738;
+import org.estructuras.ListaPrestamo_201513738;
 import org.estructuras.ListaUsuario_201513738;
 import org.estructuras.NodoUsuario_201513738;
 
@@ -33,6 +35,8 @@ public class VentanaPrincipal_201513738 extends JFrame implements ActionListener
     private JLabel lblimg;
     
     public  ListaUsuario_201513738 listUsuarios;
+    public ListaBibliografia_201513738 listBibliografia;
+    public ListaPrestamo_201513738 listPrestamo;
 
     public VentanaPrincipal_201513738() {
         super();                    // usamos el contructor de la clase padre JFrame
