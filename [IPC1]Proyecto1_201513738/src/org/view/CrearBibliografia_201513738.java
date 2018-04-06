@@ -50,14 +50,14 @@ public class CrearBibliografia_201513738 extends JFrame implements ActionListene
         panelCarga = new JPanel();
         panelCargaMasiva = new JPanel();
         
-        txtArea = new JTextArea();
+        txtArea = new JTextArea(15,75);
         btnCarga = new JButton("Cargar");
         btnCancelar = new JButton("Cancelar");
         
         panelCargaMasiva.setBounds(0, 0, 950, 700);
         txtArea.setBounds(75,25,800,500);
-        btnCarga.setBounds(325,550,100,50);
-        btnCancelar.setBounds(525,550,100,50);
+        btnCarga.setBounds(325,650,100,50);
+        btnCancelar.setBounds(525,650,100,50);
         
         panelCargaMasiva.add(txtArea);
         panelCargaMasiva.add(btnCarga);
