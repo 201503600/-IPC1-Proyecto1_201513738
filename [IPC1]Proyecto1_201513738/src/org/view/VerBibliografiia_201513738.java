@@ -13,59 +13,67 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import org.estructuras.NodoBibliografia_201513738;
 import org.estructuras.NodoUsuario_201513738;
 
-public class PrestamoLibro_201513738 extends JFrame implements ActionListener {
+/**
+ *
+ * @author ed_ci
+ */
+public class VerBibliografiia_201513738 extends JFrame implements ActionListener{
+       private InicioAdmin_201513738 instanciaPrincipal;
+    private String[] columnNames = {"ID","Autor","Año publicacion","isbn","Titulo","Edicion","Palabra clave" , "descripcion"
+            ,"Temas","Copias", "disponibles" ,"Categoria","Ejemplar","Area" , "Tamaño" };
     
-        JButton logut ,regresar ,devolver;
-        JLabel lis;
-         private String[] columnNames = {"No.","Titulo","Tipo"};
-         private InicioAdmin_201513738 instanciaPrincipal;
-         
-         public PrestamoLibro_201513738(InicioAdmin_201513738 instancia){
+    private JButton btnRegresar;
+     
+     public VerBibliografiia_201513738(InicioAdmin_201513738 instancia){
         this.instanciaPrincipal = instancia;
         
         configurarVentana();
         inicializarComponentes();
         
      }
-      private void configurarVentana() {
-        this.setTitle("Prestamo libro");                   // colocamos titulo a la ventana
+    
+     private void configurarVentana() {
+        this.setTitle("Ver Usuarios");                   // colocamos titulo a la ventana
         this.setSize(500, 400);                                 // colocamos tamanio a la ventana (ancho, alto)
         this.setLocationRelativeTo(null);                       // centramos la ventana en la pantalla
         this.setLayout(null);                                   // no usamos ningun layout, solo asi podremos dar posiciones a los componentes
         this.setResizable(false);                               // hacemos que la ventana no sea redimiensionable
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    // hacemos que cuando se cierre la ventana termina todo proceso
+        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);    // hacemos que cuando se cierre la ventana termina todo proceso
     }
-       private void inicializarComponentes(){
-        JTable tablaPrestamos = new JTable(obtieneMatriz(), columnNames);
-       tablaPrestamos.setEnabled(false);
-         JScrollPane scroll = new JScrollPane();
-       scroll.setViewportView(tablaPrestamos);
-        JPanel panelPrincipal = new JPanel();
-       JLabel labelUSr = new JLabel("Listado de prestamos");
-        panelPrincipal.setBounds(0, 0, 500, 400);
+     
+      private void inicializarComponentes() {
+       JTable tablaUsr = new JTable(obtieneMatriz(), columnNames);
+       tablaUsr.setEnabled(false);
+       JScrollPane scroll = new JScrollPane();
+       scroll.setViewportView(tablaUsr);
+       JPanel panelPrincipal = new JPanel();
+       JLabel labelUSr = new JLabel("Listado de Bibliografias registrados");
+       panelPrincipal.setBounds(0, 0, 500, 400);
        scroll.setBounds(50, 200, 325, 200);
        labelUSr.setBounds(200,20,100,20);
-       tablaPrestamos.setBounds(50,200,325,200);
+       tablaUsr.setBounds(50,200,325,200);
        
-       logut.addActionListener(this);
-       regresar.addActionListener(this);
-        
-       panelPrincipal.add(logut);
-        panelPrincipal.add(regresar);
-        
+       btnRegresar = new JButton("Regresar");
+       btnRegresar.setBounds(0, 20, 50, 20);
+       btnRegresar.addActionListener(this);
+        panelPrincipal.add(btnRegresar);
        panelPrincipal.add(labelUSr);
        panelPrincipal.add(scroll);
-       
+      
        this.add(panelPrincipal);
-     }
-      private String[][] obtieneMatriz(){
-         String informacion[][] = new String[this.instanciaPrincipal.getPrincipal().listUsuarios.getSize() - 1 ][columnNames.length];
+        
+      
+    }
+     
+     private String[][] obtieneMatriz(){
+         String informacion[][] = new String[this.instanciaPrincipal.getPrincipal().listBibliografia.getSize()  ][columnNames.length];
          
-         NodoUsuario_201513738 aux = this.instanciaPrincipal.getPrincipal().listUsuarios.getRaiz();
-         for (int pos = 0; pos < this.instanciaPrincipal.getPrincipal().listUsuarios.getSize(); pos++){
-             if (aux.getRol() != NodoUsuario_201513738.ROL.ADMIN){
+         NodoBibliografia_201513738 aux = this.instanciaPrincipal.getPrincipal().listBibliografia.getRaiz();
+         for (int pos = 0; pos < this.instanciaPrincipal.getPrincipal().listBibliografia.getSize(); pos++){
+             
                  informacion[pos][0] = aux.getDPI();
                 informacion[pos][1] = aux.getNombre();
                 informacion[pos][2] = aux.getApellido();
@@ -75,15 +83,17 @@ public class PrestamoLibro_201513738 extends JFrame implements ActionListener {
                 else if (aux.getRol() == NodoUsuario_201513738.ROL.ESTUDIANTE)
                    informacion[pos][4] = "Estudiante";
                 informacion[pos][5] = aux.getPass();
-             }
+             
              aux = aux.getSiguiente();
          }
          
          return informacion;
-     }  
-
+     }
+     
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       instanciaPrincipal.setVisible(true);
+       this.dispose();
     }
+    
 }

@@ -21,6 +21,9 @@ public class ListaBibliografia_201513738 {
     public int getSize(){
         return this.size;
     }
+    public NodoBibliografia_201513738 getRaiz(){
+        return this.cabeza;
+    }
     
     public boolean esVacia(){
         if (size > 0)
