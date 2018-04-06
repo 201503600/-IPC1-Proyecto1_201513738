@@ -14,7 +14,7 @@ public class InicioUsuario_201513738  extends JFrame  implements ActionListener{
     
     public VentanaPrincipal_201513738 instanciaPrincipal;
     
-    private JButton btnLogout;
+    private JButton btnLogout,btnPrestamo ,btnBiblio;
     
     public InicioUsuario_201513738(VentanaPrincipal_201513738 instancia){
         configurarVentana();

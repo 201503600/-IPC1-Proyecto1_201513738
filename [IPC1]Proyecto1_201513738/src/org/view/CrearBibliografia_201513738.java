@@ -101,6 +101,10 @@ public class CrearBibliografia_201513738 extends JFrame implements ActionListene
         panelCarga.add(txtTitulo);
         panelCarga.add(des);
         panelCarga.add(txtDes);
+        panelCarga.add(palabras);
+        panelCarga.add(txtPalabras);
+        panelCarga.add(anio);
+        panelCarga.add(txtanio);
         panelCarga.add(edicion);
         panelCarga.add(txtEdicion);
         panelCarga.add(temas);
