@@ -51,7 +51,7 @@ public class NodoBibliografia_201513738 {
         this.siguiente = null;
     }
 
-    public NodoBibliografia_201513738(Integer ID, String autor, Integer anioPublicacion, String titulo, Integer edicion, String[] palabraClave, String descripcion, String[] temas, Integer copias, Integer disponibles, String categoria, Integer ejemplar) {
+    public NodoBibliografia_201513738(Integer ID, String autor, Integer anioPublicacion, String titulo, Integer edicion, String descripcion, String categoria, Integer ejemplar,  String[] temas, String[] palabraClave, Integer copias, Integer disponibles) {
         this.ID = ID;
         this.autor = autor;
         this.anioPublicacion = anioPublicacion;
@@ -69,7 +69,7 @@ public class NodoBibliografia_201513738 {
         this.siguiente = null;
     }
 
-    public NodoBibliografia_201513738(Integer ID, String autor, Integer anioPublicacion, String titulo, Integer edicion, String[] palabraClave, String descripcion, String[] temas, Integer copias, Integer disponibles, String area) {
+    public NodoBibliografia_201513738(Integer ID, String autor, Integer anioPublicacion, String titulo, String[] palabraClave, String area, String[] temas, String descripcion, Integer edicion,  Integer copias, Integer disponibles) {
         this.ID = ID;
         this.autor = autor;
         this.anioPublicacion = anioPublicacion;

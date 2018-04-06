@@ -38,9 +38,30 @@ public class ListaPrestamoVirtual_201513738 {
         }
     }
     
-    public boolean eliminarPrestamo(){
-        
+    public boolean eliminarPrestamo(NodoPrestamoVirtual_201513738 nodo){
+        if (esVacia()){
+            NodoPrestamoVirtual_201513738 aux = cabeza;
+            while (aux != null){
+                if (aux == nodo){
+                    try{
+                        aux.getAnterior().setSiguiente(aux.getSiguiente());
+                    }catch(Exception ex){}
+                    try{
+                        aux.getSiguiente().setAnterior(aux.getAnterior());
+                    }catch(Exception ex){}
+                    aux.setSiguiente(null);
+                    aux.setAnterior(null);
+                    size--;
+                    return true;
+                }
+                aux = aux.getSiguiente();
+            }
+        }
         return false;
+    }
+    
+    public NodoPrestamoVirtual_201513738 getRaiz(){
+        return cabeza;
     }
     
 }

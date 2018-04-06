@@ -19,6 +19,7 @@ public class NodoUsuario_201513738 {
     private String apellido;
     private ROL rol;
     private String pass;
+    public ListaPrestamoVirtual_201513738 prestamoDigital;
     private NodoUsuario_201513738 anterior;
     private NodoUsuario_201513738 siguiente;
       
@@ -29,6 +30,7 @@ public class NodoUsuario_201513738 {
         this.apellido = apellido;
         this.rol = rol;
         this.pass = pass;
+        this.prestamoDigital = new ListaPrestamoVirtual_201513738();
         this.anterior = null;
         this.siguiente = null;
     }

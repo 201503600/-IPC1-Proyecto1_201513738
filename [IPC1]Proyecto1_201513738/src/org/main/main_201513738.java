@@ -33,10 +33,8 @@ public class main_201513738 {
             e.printStackTrace();
            }
         
-       // VentanaPrincipal_201513738 v = new VentanaPrincipal_201513738();
-        //v.setVisible(true);
-        CrearBibliografia_201513738 c = new CrearBibliografia_201513738();
-        c.setVisible(true);
+        VentanaPrincipal_201513738 v = new VentanaPrincipal_201513738();
+       v.setVisible(true);
         
     }
     
