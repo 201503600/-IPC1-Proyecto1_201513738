@@ -22,7 +22,7 @@ import org.estructuras.NodoUsuario_201513738;
  */
 public class VerBibliografiia_201513738 extends JFrame implements ActionListener{
        private InicioAdmin_201513738 instanciaPrincipal;
-    private String[] columnNames = {"ID","Autor","Año publicacion","isbn","Titulo","Edicion","Palabra clave" , "descripcion"
+    private String[] columnNames = {"ID", "Tipo","Autor","Año publicacion","isbn","Titulo","Edicion","Palabra clave" , "descripcion"
             ,"Temas","Copias", "disponibles" ,"Categoria","Ejemplar","Area" , "Tamaño" };
     
     private JButton btnRegresar;
@@ -74,16 +74,35 @@ public class VerBibliografiia_201513738 extends JFrame implements ActionListener
          NodoBibliografia_201513738 aux = this.instanciaPrincipal.getPrincipal().listBibliografia.getRaiz();
          for (int pos = 0; pos < this.instanciaPrincipal.getPrincipal().listBibliografia.getSize(); pos++){
              
-                 informacion[pos][0] = aux.getDPI();
-                informacion[pos][1] = aux.getNombre();
-                informacion[pos][2] = aux.getApellido();
-                informacion[pos][3] = aux.getNickname();
-                if (aux.getRol() == NodoUsuario_201513738.ROL.CATEDRATICO)
-                   informacion[pos][4] = "Catedratico";
-                else if (aux.getRol() == NodoUsuario_201513738.ROL.ESTUDIANTE)
-                   informacion[pos][4] = "Estudiante";
-                informacion[pos][5] = aux.getPass();
-             
+                 //informacion[pos][0] = aux.getDPI();
+                   informacion[pos][0] = aux.getID().toString();
+                   if (aux.getTipoBibliografia() == NodoBibliografia_201513738.TIPO.LIBRO)
+                       informacion[pos][1] = "Libro";
+                   else if (aux.getTipoBibliografia() == NodoBibliografia_201513738.TIPO.REVISTA)
+                       informacion[pos][1] = "Revista";
+                   else if (aux.getTipoBibliografia() == NodoBibliografia_201513738.TIPO.TESIS)
+                       informacion[pos][1] = "Tesis";
+                   else if (aux.getTipoBibliografia() == NodoBibliografia_201513738.TIPO.LIBRO_DIGITAL)
+                       informacion[pos][1] = "Libro Digital";
+                   informacion[pos][2] = aux.getAutor();
+                   informacion[pos][3] = aux.getAnioPublicacion().toString();
+                   informacion[pos][4] = aux.getTitulo();
+                   informacion[pos][5] = aux.getEdicion().toString();
+                   
+                   for(String a:aux.getPalabraClave()){
+                   informacion[pos][6] += a;
+                   }
+                   informacion[pos][7] = aux.getDescripcion();
+                   informacion[pos][8] = "";
+                   for(String b:aux.getTemas()){
+                   informacion[pos][8] +=b;
+                   }
+                   informacion[pos][9]= aux.getCopias().toString();
+                   informacion[pos][10]= aux.getDisponibles().toString();
+                   informacion[pos][11]= aux.getCategoria();
+                   informacion[pos][12]= aux.getEjemplar().toString();
+                   informacion[pos][13]= aux.getArea();
+                   informacion[pos][14] = String.valueOf(aux.getTamanio());
              aux = aux.getSiguiente();
          }
          
