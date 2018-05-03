@@ -11,20 +11,23 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import org.estructuras.NodoUsuario_201513738;
 
 public class InicioUsuario_201513738  extends JFrame  implements ActionListener{
     
     public VentanaPrincipal_201513738 instanciaPrincipal;
+    public NodoUsuario_201513738 usuario;
     
     private JButton btnLogout,btnPrestamo ,btnBiblio;
     private JLabel logo , lblLogo,lblUsuario;
     
     
-    public InicioUsuario_201513738(VentanaPrincipal_201513738 instancia){
+    public InicioUsuario_201513738(VentanaPrincipal_201513738 instancia, NodoUsuario_201513738 usuario){
         configurarVentana();
         inicializarComponentes();
         
         this.instanciaPrincipal = instancia;
+        this.usuario = usuario;
     }
     
     public VentanaPrincipal_201513738 getPrincipal(){
@@ -68,6 +71,7 @@ public class InicioUsuario_201513738  extends JFrame  implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnLogout){
             instanciaPrincipal.setVisible(true);
+            this.instanciaPrincipal.listUsuarios.modificarUsuario(usuario.getDPI(), usuario);
             this.dispose();
         }
     }

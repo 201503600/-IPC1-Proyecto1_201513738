@@ -17,6 +17,9 @@ public class InicioAdmin_201513738 extends JFrame implements ActionListener{
     private CrearUsuario_201513738 crearUsuario;
     private ModificarUsuario_201513738 modUsuario;
     private VerUsuarios_201513738 verUsuario;
+    private EliminarUsuario_201513738 deleteUsuario;
+    private CrearBibliografia_201513738 crearBiblio;
+    private VerBibliografiia_201513738 verBiblio;
     
     JLabel lblUsuario , bibliografos , reportes ;
     JButton btnLogout;
@@ -120,11 +123,29 @@ public class InicioAdmin_201513738 extends JFrame implements ActionListener{
             this.setVisible(false);
         }
         else if (e.getSource() == btnEliminar){
-            
+            deleteUsuario = new EliminarUsuario_201513738(this);
+            deleteUsuario.setVisible(true);
+            this.setVisible(false);
         }
         else if (e.getSource() == btnMostrar){
             verUsuario = new VerUsuarios_201513738(this);
             verUsuario.setVisible(true);
+            this.setVisible(false);
+        }
+        else if (e.getSource() == btnCrear_){
+            crearBiblio = new CrearBibliografia_201513738(this);
+            crearBiblio.setVisible(true);
+            this.setVisible(false);
+        }
+        else if (e.getSource() == btnModificar_){
+            
+        }
+        else if (e.getSource() == btnEliminar_){
+            
+        }
+        else if (e.getSource() == btnMostrar_){
+            verBiblio = new VerBibliografiia_201513738(this);
+            verBiblio.setVisible(true);
             this.setVisible(false);
         }
     }

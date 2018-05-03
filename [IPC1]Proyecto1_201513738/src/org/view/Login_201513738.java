@@ -82,7 +82,7 @@ public class Login_201513738 extends JFrame implements ActionListener{
                     admin.setVisible(true);
                     this.dispose();
                 }else{
-                    user = new InicioUsuario_201513738(instanciaPrincipal);
+                    user = new InicioUsuario_201513738(instanciaPrincipal, usuario);
                     user.setVisible(true);
                     this.dispose();
                 }

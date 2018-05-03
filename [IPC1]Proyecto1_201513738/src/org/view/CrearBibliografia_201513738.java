@@ -258,7 +258,10 @@ public class CrearBibliografia_201513738 extends JFrame implements ActionListene
              }
         }
         else if (e.getSource() == btnCarga){ // Carga masiva
-            
+            String [] bibliografias = txtCarga.getText().split("\n");
+            for (int i = 0; i < bibliografias.length; i++){
+                
+            }
         }
         else if (e.getSource() == btcancelar || e.getSource() == btnCancelar){
             this.instanciaPrincipal.setVisible(true);

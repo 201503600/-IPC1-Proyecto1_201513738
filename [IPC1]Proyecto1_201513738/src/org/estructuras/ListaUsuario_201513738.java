@@ -63,6 +63,7 @@ public class ListaUsuario_201513738 {
                     aux.setNombre(nuevo.getNombre());
                     aux.setPass(nuevo.getPass());
                     aux.setRol(nuevo.getRol());
+                    aux.prestamoDigital = nuevo.prestamoDigital;
                     return true;
                 }
                 aux = aux.getSiguiente();
